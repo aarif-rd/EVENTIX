@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | Eventix</title>
+    <link rel="icon" href="/img/logo.png" type="image/png" />
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+      .top-action { position: absolute; right: 20px; top: 20px; z-index: 5; }
+     .btn-arrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 14px; border-radius: 999px;
+      background: rgb(63, 146, 220);
+      border: 1px solid #06b6d4;
+      color: #ffffff; font-weight: 700; border: none; text-decoration: none;
+     
+    }
+    .btn-arrow:hover { transform: scale(1.02) }
+    :root{
+      --page-bg: #02102a;
+      --accent-light: #9fb7ff;
+      --white: #ffffff;
+      --avatar-bg: #b71c1c;    
+      --team-img-size: 140px; 
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg, var(--page-bg) 0%, #071428 60%);
+      color: var(--white);
+    }
+
+    .force-ltr { direction: ltr; }
+    .force-ltr .text-vis-left { text-align: left !important; }
+    .force-ltr .text-vis-right { text-align: right !important; }
+
+    .hero{
+      background: linear-gradient(120deg, rgba(108,99,255,0.06), rgba(11,98,229,0.04));
+      height: 36vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding: 2.5rem 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .glass-overlay{
+      background: rgba(10,20,45,0.38);
+      border-radius: 12px;
+      padding: 1.6rem 2rem;
+      border: 1px solid rgba(255,255,255,0.04);
+      box-shadow: 0 10px 40px rgba(2,8,30,0.55);
+      display:inline-block;
+    }
+    .hero h1{ font-weight:900; color:var(--white); font-size:2.4rem; margin-bottom:.2rem; }
+    .hero p.lead{ color:var(--white); font-weight:700; font-size:1rem; margin:0; }
+
+    .vision-inner{
+      padding:1.2rem;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+
+    .section-title{
+      color: var(--accent-light);
+      font-weight:700;
+      display:inline-block;
+      margin-bottom: 12px;
+    }
+
+    .feature-card{ border-radius:12px; padding:1.2rem; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); transition: transform .35s, box-shadow .35s; }
+    .feature-card:hover{ transform: translateY(-8px); box-shadow: 0 18px 40px rgba(2,8,30,0.6); }
+    .feature-card h4{ color: var(--accent-light); font-weight:700; }
+    .feature-card p{ color: var(--white); margin:0; }
+
+    .team-card{
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+      transition: transform .35s ease, box-shadow .35s ease;
+      overflow: visible;
+    }
+    .team-card:hover{
+      transform: translateY(-14px) scale(1.12);
+      box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+      z-index: 30;
+    }
+
+    .team-card .img-wrap{
+      width: var(--team-img-size);
+      height: var(--team-img-size);
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 12px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--avatar-bg);
+      transition: transform .45s ease;
+      box-shadow: 0 8px 30px rgba(11,98,229,0.06);
+    }
+
+    .team-card img{
+      width: 92%;
+      height: 92%;
+      object-fit: contain; 
+      border-radius: 50%;
+      display:block;
+      transition: transform .45s ease;
+      background: transparent;
+    }
+
+    .team-card:hover .img-wrap{ transform: scale(1.28); }
+    .team-card:hover img{ transform: scale(1.12); }
+
+    .team-card h6{ color: var(--accent-light); font-weight:700; margin:6px 0 4px; }
+    .team-card .role, .team-card p.small{ color: var(--white); font-weight:400; margin:0; font-size:0.95rem; }
+
+    @media (max-width: 992px){
+      .team-card:hover{ transform: translateY(-10px) scale(1.08); }
+      .team-card .img-wrap{ width: calc(var(--team-img-size) * 0.9); height: calc(var(--team-img-size) * 0.9); }
+    }
+    @media (max-width: 576px){
+      .team-card .img-wrap{ width: calc(var(--team-img-size) * 0.75); height: calc(var(--team-img-size) * 0.75); }
+    }
+  </style>
+</head>
+<body>
+               <div class="top-action">
+      <a href="/index.HTML" class="btn-arrow" aria-label="Exit or go to another page">
+        <span>Exit</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#071022" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 4l1.41 1.41L8.83 10H20v2H8.83l4.58 4.59L12 18l-8-8 8-8z"/>
+        </svg>
+      </a>
+    </div>
+
+  <section class="hero">
+    <div class="glass-overlay">
+      <h1>About Us</h1>
+      <p class="lead">A modern platform for discovering and organizing events</p>
+    </div>
+  </section>
+
+  <section class="container py-4 force-ltr">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-6 order-lg-1">
+        <div class="vision-inner text-vis-left">
+          <h2 class="section-title">Our Vision</h2>
+          <p style="color:var(--white); font-weight:700; margin-top:8px;">
+            We are six students from the vocational training center, and together we developed a website called Evintix. The platform focuses on different types of events such as sports, cultural activities, and theater. Each of us had a specific role in building the project, applying what we learned during our training. Evintix reflects our teamwork, technical skills, and passion for connecting people through events
+          </p>
+          
+
+          <div class="question-block" style="margin-top:18px;">
+            <h3 class="section-title text-vis-left">What Makes Our Platform Special?</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 order-lg-2 text-vis-right">
+        <div style="background: rgba(10,20,45,0.38); border-radius:12px; padding:12px; border:1px solid rgba(255,255,255,0.04); display:inline-block;">
+          <img src="WhatsApp_Image_2025-11-26_à_17.50.47_15205637-removebg-preview[1].png" alt="Team" style="max-width:320px; width:100%; border-radius:8px;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-3">
+    <div class="row g-4 mt-2">
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <i class="fa-solid fa-calendar-check" style="font-size:36px; color:var(--accent-light);"></i>
+          <h4 class="mt-3">Professional Organizing</h4>
+          <p>Clear and easy event display and registration system.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <i class="fa-solid fa-users" style="font-size:36px; color:var(--accent-light);"></i>
+          <h4 class="mt-3">Skilled Team</h4>
+          <p>Each member has a specific task to make the project perfect.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card text-center">
+          <i class="fa-solid fa-bolt" style="font-size:36px; color:var(--accent-light);"></i>
+          <h4 class="mt-3">Fast & Easy Experience</h4>
+          <p>Smooth interface, fast navigation, and clean design.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="container py-4 force-ltr">
+    <div class="row g-4 justify-content-end">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="team-card">
+          <div class="img-wrap" style="--team-img-size:140px;">
+            <img src="WhatsApp Image 2025-12-03 à 00.44.46_db4269d5.jpg" alt="Member 1">
+          </div>
+          <h6>Rida Arif</h6>
+          <div class="role">Full Stack</div>
+          <p class="small">Responsible for UI/UX design and layout and chef de projet</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="team-card">
+          <div class="img-wrap" style="--team-img-size:140px;">
+            <img src="WhatsApp Image 2025-12-02 à 23.17.51_3cb2204f.jpg" alt="Member 2">
+          </div>
+          <h6>Yahya Boughazi</h6>
+          <div class="role">Full Stack</div>
+          <p class="small">Creates events listing and filtering system.</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="team-card">
+          <div class="img-wrap" style="--team-img-size:140px;">
+            <img src="WhatsApp Image 2025-12-03 à 01.27.31_15924ac2.jpg" alt="Member 3">
+          </div>
+          <h6>Anoir Idili</h6>
+          <div class="role">Full Stack</div>
+          <p class="small">Dashboard development and analytics.</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="team-card">
+          <div class="img-wrap" style="--team-img-size:140px;">
+            <img src="WhatsApp Image 2025-12-03 à 00.51.00_c4ad65a3.jpg" alt="Member 4">
+          </div>
+          <h6>Ilham Bouydnain</h6>
+          <div class="role">Full Stack</div>
+          <p class="small">Handles login and user registration.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center mt-3">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="team-card">
+          <div class="img-wrap" style="--team-img-size:140px;">
+            <img src="WhatsApp Image 2025-12-02 à 22.46.22_e81fd6fa.jpg" alt="Member 5">
+          </div>
+          <h6>Chaima Ibnou Chadde</h6>
+          <div class="role">Full Stack</div>
+          <p class="small">Event content and design lead.</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="team-card">
+          <div class="img-wrap" style="--team-img-size:140px;">
+            <img src="WhatsApp Image 2025-12-02 à 22.46.23_a3ba6b7d.jpg" alt="Member 6">
+          </div>
+          <h6>Btissam Ettazi</h6>
+          <div class="role">Full Stack</div>
+          <p class="small">Event content and design lead.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

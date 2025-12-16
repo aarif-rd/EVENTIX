@@ -1,0 +1,663 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0f172a" />
+  <title>Eventix</title>
+  <link rel="icon" href="/img/logo.png" type="image/png" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    .glass-search {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+    border-radius: 12px;
+}
+@font-face {
+  font-family: mon;
+  src: url(/Eventix/font/Montserrat-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: ton;
+  src: url(/Eventix/font/PlayfairDisplay-Italic-VariableFont_wght.ttf);
+}
+
+.glass-search .form-control {
+    background: transparent;
+    border: none;
+    color: #fff;
+    box-shadow: none;
+}
+
+.glass-search .form-control::placeholder {
+    color: rgba(255,255,255,0.6);
+}
+
+.glass-search:focus-within {
+    border-color: rgba(99,102,241,0.95);
+    box-shadow: 0 8px 30px rgba(99,102,241,0.12);
+}
+
+.btn-search {
+    background: linear-gradient(180deg, rgba(99,102,241,0.95), rgba(79,70,229,0.95));
+    border: none;
+    color: #fff;
+    padding: .5rem .75rem;
+    border-radius: 10px;
+}
+
+.btn-search i {
+    font-size:1.2rem;
+}
+    .navbar{
+      width: 50%;
+      margin: auto;
+      margin-top :8vh;
+      border-radius: 20px;
+
+    }
+
+    
+    
+    .dropdown-menu a.dropdown-item:hover {
+    background-color: #9000ff; 
+    color: black; 
+}
+
+    .glass-nav {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px) saturate(120%);
+      -webkit-backdrop-filter: blur(8px) saturate(120%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    
+    .navbar .nav-link, .navbar .navbar-brand, .navbar .btn {
+      color: #fff !important;
+    }
+
+    
+    .brand-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    
+    .nav-center {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    
+    .circle-btn {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.02);
+      color: #fff;
+    }
+
+    
+    .cart-badge {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      font-size: 10px;
+      padding: 2px 5px;
+      border-radius: 999px;
+    }
+   
+@media (max-width: 767px) {
+  .glass-search {
+    width: 90% !important;        
+    gap: .4rem !important;
+    padding: .45rem !important;
+    border-radius: 10px !important;
+    align-items: center;
+   
+    display: flex;
+    flex-direction: row;
+  }
+
+  .glass-search .input-group {
+    flex: 1 1 auto;                
+    min-width: 0;                  
+  }
+
+  .glass-search .form-control {
+    background: transparent;
+    border: none;
+    padding: .45rem .5rem;
+    font-size: 0.95rem;
+    color: #fff;
+    box-shadow: none;
+  }
+
+  .glass-search .input-group-text {
+    padding-right: .4rem;
+    padding-left: .25rem;
+    background: transparent;
+    border: none;
+  }
+
+  .btn-search {
+    padding: .45rem .6rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-left: .25rem;
+    flex: 0 0 auto;              
+  }
+}
+
+@media (max-width: 420px) {
+  .glass-search {
+    flex-direction: column;        
+    gap: .5rem !important;
+    padding: .5rem !important;
+  }
+  .glass-search .input-group { width: 90%; }
+  .btn-search { width: 90%; margin-left: 0; }
+  .glass-search .form-control { padding: .6rem .5rem; font-size:1rem;}
+}
+
+
+@media (max-width: 767px) {
+
+    .navbar{
+        width: 90%;
+        margin: auto;
+        margin-top :8vh;
+        border-radius: 20px;
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+    }
+
+  .navbar .d-flex {
+    order: 1 !important;
+    margin-right: auto !important; 
+  }
+
+  .navbar-brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto !important;
+  }
+
+  .navbar-toggler {
+    order: 2 !important;
+    margin-left: auto !important;
+  }
+
+  .nav-center {
+    display: none !important;
+  }
+  #langToggle {
+    display: none !important;
+  }
+}
+    body {
+      min-height: 2000px; 
+      background: linear-gradient(120deg,#0f172a,#0b1220 60%);
+      color: #06369f;
+    }
+    .ropo{
+            background-image: url(/img/cover.png) ; 
+            background-repeat: no-repeat; 
+            width: 100%;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+
+            ;
+
+    }
+    .card{
+            background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(8px) saturate(120%);
+      -webkit-backdrop-filter: blur(8px) saturate(120%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      border-radius: 10px;
+      margin-top: 20px;
+
+      
+    }
+
+    
+    .container .card h1{
+      font-family: mon;
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+    }
+        .container .card p{
+      font-family: ton;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .container .h1{
+      font-family: mon;
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .container #hio{
+      margin: 15vh;
+    }
+
+
+    .lang-btn {
+      min-width: 48px;
+    }
+    .navbar .collapse .nav-item :hover{
+      background-color: #9000ff4a;
+      color: black;
+      backdrop-filter: bluer(8px) saturate(120%);
+      border-radius: 20px;
+
+    }
+
+
+    .event-img {
+      width: 100%;
+      height: 260px; 
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      transition: transform .28s ease, box-shadow .28s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+    }
+
+    .event-link { display: block; }
+
+    .event-link:hover .event-img {
+      transform: scale(1.03);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.26);
+    }
+
+    
+    @media (min-width: 992px) {
+      .carousel-item .col-slide { flex: 0 0 33.333%; max-width: 33.333%; }
+    }
+
+   
+    @media (min-width: 576px) and (max-width: 991.98px) {
+      .carousel-item .col-slide { flex: 0 0 50%; max-width: 50%; }
+    }
+
+   
+    @media (max-width: 575.98px) {
+      .carousel-item .col-slide { flex: 0 0 50%; max-width: 50%; }
+ 
+    }
+
+   
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+
+    .carousel-wrapper { padding: 28px 0; }
+    #hio{
+      color: white;
+      text-align: center;
+      margin: 40px;
+      text-shadow: 0 0 10px whitesmoke, 0 0 20px whitesmoke
+      ;
+    }
+
+ body{
+      display: flex;
+      flex-direction: column;
+    }
+
+        footer {
+      background: rgba(255, 255, 255, 0.08) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+      padding-top: 60px;
+      padding-bottom: 60px;
+      margin-top: auto !important;
+
+    }
+
+    footer h5 {
+      color: #0fc8f1;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    footer a {
+      color: #e1e1e1;
+      display: block;
+      margin-bottom: 8px;
+      transition: 0.3s;
+      text-decoration: none !important;
+    }
+
+    footer a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .footer-col {
+      border-right: 1px solid rgba(255, 255, 255, 0.20);
+      padding-left: 25px;
+      padding-right: 25px;
+      min-height: 180px;
+    }
+
+    .footer-col:last-child {
+      border-right: none;
+    }
+
+   
+    html,body{
+      height: 100%;
+    }
+    body{
+      display: flex;
+      flex-direction: column;
+    }
+
+
+    .separator {
+        width: 120px;
+        height: 2px;
+        background-color: #ffffff;
+    }
+    footer h5{
+      color: #0fc8f1;
+    }
+
+    .follow-section i {
+        transition: 0.3s ease;
+        cursor: pointer;
+  
+    }
+    .follow-section h5{
+            color: #0fc8f1;
+    }
+
+    .follow-section i:hover {
+        color: #007589; 
+        transform: scale(1.2);
+        }
+
+
+  </style>
+</head>
+<body>
+  <div class="ropo">
+  
+
+<nav class="navbar navbar-expand-lg glass-nav fixed-top" id="mainNav">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="/img/logo.png" alt="Eventix" class="brand-logo me-2">Eventix
+    </a>
+
+    <button class="navbar-toggler btn btn-link text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list" style="font-size:1.3rem;"></i>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navMain">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link px-3" href="index.HTML" data-key="home">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-3" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Event
+          </a>
+          <ul class="dropdown-menu bg-primary bg-opacity-25 backdrop-blur p-3 border-0 shadow-lg">
+            <li><a class="dropdown-item text-white" href="sport.html">Sport</a></li>
+            <li><a class="dropdown-item text-white" href="ithétre cinéma.html">Theatre/cinema</a></li>
+            <li><a class="dropdown-item text-white" href="concert.html">Concert</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-3" href="DASHBOARD.HTML" data-key="contact">Dashboard</a>
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="d-flex align-items-center gap-2">
+
+      <div class="position-relative me-1">
+        <button id="cartBtn" class="circle-btn border-0" title="Cart">
+          <i class="bi bi-cart3" style="font-size:1.1rem;"></i>
+        </button>
+        <span id="cartCount" class="badge bg-danger cart-badge">3</span>
+      </div>
+
+  
+      <div class="dropdown">
+        <button class="circle-btn dropdown-toggle" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false" title="Account">
+          <i class="bi bi-person-circle" style="font-size:1.2rem;"></i>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="accountDropdown">
+          <li><a class="dropdown-item" href="signin.html">Sign in</a></li>
+          <li><a class="dropdown-item" href="LOGIN.HTML">log in</a></li>
+        </ul>
+      </div>
+
+
+      <button id="langToggle" class="btn btn-sm lang-btn border-0" title="Change language">EN</button>
+    </div>
+  </div>
+</nav>
+
+
+<main class="container" style="padding-top:210px;">
+  <div class="card ">
+    <div class="text-light d-flex flex-column align-items-center"  style="justify-content: center;">
+    <h1>WELCOOOM TO Eventix</h1>
+    <p class="best">best web site in the world</p>
+    </div>
+<div class="glass-search p-2 d-flex align-items-center" style="width:540px; gap:.5rem;">
+    <div class="input-group">
+      <span class="input-group-text bg-transparent border-0 pe-0" id="search-addon">
+        <i class="bi bi-search" style="font-size:1.05rem; color:rgba(255,255,255,0.85)"></i>
+      </span>
+
+      <input type="search"
+             class="form-control"
+             placeholder="search for events, categories, etc ..."
+             aria-label="Search"
+             aria-describedby="search-addon">
+    </div>
+
+    <button class="btn btn-search" type="button" aria-label="search-btn">
+      <i class="bi bi-arrow-right-short" style="font-size:1.25rem"></i>
+    </button>
+</div>
+
+
+  </div>
+
+</main>
+</div>
+  
+ <div class="container carousel-wrapper">
+    <h1 id="hio" class="h1">Most Popular Events </h1>
+
+    <div id="eventsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000" aria-label="Events carousel">
+
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#eventsCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#eventsCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#eventsCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <div class="row gx-3">
+            <div class="col-slide">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/concert1.jpg" alt="Concert">
+              </a>
+            </div>
+            <div class="col-slide">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/concert2.jpg" alt="Festival">
+              </a>
+            </div>
+            <div class="col-slide d-none d-lg-block">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/concert3.jpg" alt="Show">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row gx-3">
+            <div class="col-slide">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/théatre.cinéma1.jpg" alt="Live">
+              </a>
+            </div>
+            <div class="col-slide">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/théatre.cinéma2.jpg" alt="Stage">
+              </a>
+            </div>
+            <div class="col-slide d-none d-lg-block">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/théatre.cinéma3.jpg" alt="Orchestra">
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="carousel-item">
+          <div class="row gx-3">
+            <div class="col-slide">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/sport1.jpg" alt="Event A">
+              </a>
+            </div>
+            <div class="col-slide">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/sport2.jpg" alt="Event B">
+              </a>
+            </div>
+            <div class="col-slide d-none d-lg-block">
+              <a class="event-link" href="/other page/formulaire -hom.html"  rel="noreferrer">
+                <img class="event-img img-fluid" src="/img/sport3.jpg" alt="Event C">
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#eventsCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#eventsCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+
+     </div>
+  </div>
+
+<footer class="text-light">
+  <div class="container">
+    <div class="row text-start justify-content-between">
+
+      <div class="col-6 col-md-2 footer-col mb-4">
+        <h5>About</h5>
+        <a href="/projet/hhh.HTML">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+
+      <div class="col-6 col-md-3 footer-col mb-4">
+        <h5>Using Eventix</h5>
+        <a href="#">Buy Tickets Online</a>
+        <a href="#">Book an Event</a>
+        <a href="#">Event Map</a>
+        <a href="#">Eventix Features</a>
+        <a href="#">Secure Payment</a>
+        <a href="#">Community Rules</a>
+        <a href="#">Promote Your Event</a>
+      </div>
+
+      <div class="col-6 col-md-3 footer-col mb-4">
+        <h5>Plan Your Events</h5>
+        <a href="#">Sell Tickets Online</a>
+        <a href="#">Online Event Management</a>
+        <a href="#">Free Event Registration</a>
+      </div>
+
+       <div class="col-6 col-md-2 footer-col mb-4">
+        <h5>Search Events</h5>
+        <a href="#"></i> Marrakech Events</a>
+        <a href="#"></i> Casablanca Events</a>
+        <a href="#"></i> Rabat Events</a>
+      </div>
+
+
+
+<div class="follow-section text-center py-4">
+    <h5 class="text-light mb-1 " >Follow us!</h5>
+
+    
+    <div class="separator mx-auto mb-3"></div>
+
+    
+    <div class="d-flex justify-content-center gap-4 fs-4 text-light">
+        <i class="bi bi-tiktok"></i>
+        <i class="bi bi-google"></i>
+        <i class="bi bi-instagram"></i>
+        <i class="bi bi-twitter-x"></i>
+        <i class="bi bi-facebook"></i>
+        <i class="bi bi-pinterest"></i>
+    </div>
+</div>
+
+    <div class="text-center mt-4">
+      <small class="text-secondary">© 2025 Eventix. All rights reserved.</small>
+    </div>
+
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<sc>
+  
+
+
+  
+
+</script>
+
+</body>
+</html>
